@@ -47,7 +47,7 @@ stages:
     runtime: go111
     timeout: 60
     source: .
-    env:
+    env-vars:
       MYENVVAR: somevalue
       MYSECRET: estafette.secret(YjTy7bw294jSfUSt.xEPLb_pRjmVCLFosptSzmOeBwc63INN7bIcP)
     memory: 256MB

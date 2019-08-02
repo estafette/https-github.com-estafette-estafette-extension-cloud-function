@@ -16,7 +16,7 @@ type Params struct {
 	Memory               string                 `json:"memory,omitempty"`
 	Source               string                 `json:"source,omitempty"`
 	TimeoutSeconds       int                    `json:"timeout,omitempty"`
-	EnvironmentVariables map[string]interface{} `json:"env,omitempty"`
+	EnvironmentVariables map[string]interface{} `json:"env-vars,omitempty"`
 }
 
 // SetDefaults fills in empty fields with convention-based defaults

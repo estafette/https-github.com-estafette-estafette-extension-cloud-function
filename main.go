@@ -50,7 +50,6 @@ func main() {
 	// log startup message
 	logInfo("Starting %v version %v...", app, version)
 
-    logInfo("paramsJSON: %v ", paramsJSON)
 	// put all estafette labels in map
 	logInfo("Getting all estafette labels from envvars...")
 	estafetteLabels := map[string]string{}
