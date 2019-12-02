@@ -155,9 +155,6 @@ func main() {
 	log.Info().Msg("Setting gcloud project")
 	foundation.RunCommandWithArgs(ctx, "gcloud", []string{"config", "set", "project", credential.AdditionalProperties.Project})
 
-	log.Info().Msg("Setting gcloud project")
-	foundation.RunCommandWithArgs(ctx, "gcloud", []string{"config", "set", "project", credential.AdditionalProperties.Project})
-
 	// prepare to pass labels as argument
 	estafetteLabels = sanitizeLabels(estafetteLabels)
 	labelParams := []string{}
