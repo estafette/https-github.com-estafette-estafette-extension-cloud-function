@@ -282,4 +282,28 @@ func TestValidateRequiredProperties(t *testing.T) {
 		assert.True(t, valid)
 		assert.True(t, len(errors) == 0)
 	})
+
+    t.Run("ReturnsFalseIfIngressSettingsIsNotSupported", func(t *testing.T) {
+
+        params := validParams
+        params.IngressSettings = "doodah"
+
+        // act
+        valid, errors, _ := params.ValidateRequiredProperties()
+
+        assert.False(t, valid)
+        assert.True(t, len(errors) > 0)
+    })
+
+    t.Run("ReturnsTrueIfIngressSettingsIsSupported", func(t *testing.T) {
+
+        params := validParams
+        params.IngressSettings = "internal-only"
+
+        // act
+        valid, errors, _ := params.ValidateRequiredProperties()
+
+        assert.True(t, valid)
+        assert.True(t, len(errors) == 0)
+    })
 }

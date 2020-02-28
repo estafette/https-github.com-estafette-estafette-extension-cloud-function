@@ -196,6 +196,10 @@ func main() {
 	    arguments = append(arguments, "--trigger-http")
 	}
 
+	if (params.IngressSettings != "") {
+        arguments = append(arguments, "--ingress-settings", params.IngressSettings)
+	}
+
 	if params.DryRun {
 
 		log.Info().Msgf("Dry run cloud function %v deployment...", params.App)
