@@ -173,7 +173,8 @@ func main() {
 		"--source", params.Source,
 		"--timeout", fmt.Sprintf("%vs", params.TimeoutSeconds),
 		"--runtime", params.Runtime,
-		"--update-labels", strings.Join(labelParams, ",")}
+		"--update-labels", strings.Join(labelParams, ","),
+		"--ingress-settings", params.IngressSettings}
 
 	if len(params.EnvironmentVariables) > 0 {
 
@@ -194,10 +195,6 @@ func main() {
 	    arguments = append(arguments, "--trigger-bucket", params.TriggerValue)
 	} else {
 	    arguments = append(arguments, "--trigger-http")
-	}
-
-	if (params.IngressSettings != "") {
-        arguments = append(arguments, "--ingress-settings", params.IngressSettings)
 	}
 
 	if params.DryRun {

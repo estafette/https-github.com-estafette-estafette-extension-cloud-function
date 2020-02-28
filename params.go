@@ -53,6 +53,11 @@ func (p *Params) SetDefaults(gitName, appLabel, buildVersion, releaseName, relea
 	if p.TimeoutSeconds <= 0 {
 		p.TimeoutSeconds = 60
 	}
+
+	// default ingress-settings to all
+	if p.IngressSettings == "" {
+		p.IngressSettings = "all"
+	}
 }
 
 // ValidateRequiredProperties checks whether all needed properties are set
@@ -102,9 +107,8 @@ func (p *Params) ValidateRequiredProperties() (bool, []error, []string) {
 	}
 
 	supportedIngressSettings := []string{
-	    "",
-	    "all",
-	    "internal-only",
+		"all",
+		"internal-only",
 	}
 
 	if !inStringArray(p.IngressSettings, supportedIngressSettings) {
